@@ -1,17 +1,17 @@
-# Laravelプロジェクトの作成方法
+# PHP 7.4 + Nginx + MySQLでLaravelプロジェクトを作成する方法
 
 1. **cloneする。**  
    プロジェクトのコピーを自分のコンピュータにダウンロードします。
 
    ```
-   git clone https://github.com/iamtanchan/php85-nginx-mysql
+   git clone https://github.com/iamtanchan/php74-nginx-mysql
    ```
 
 2. **docker composeで立ち上げる。**  
    ダウンロードしたプロジェクトを使って、必要なプログラム（コンテナと呼ばれる）を自動的に起動します。
 
    ```
-   cd php85-nginx-mysql
+   cd php74-nginx-mysql
    docker compose up -d
    ```
 
@@ -19,7 +19,7 @@
    起動したプログラムの中の一つ、PHPを使う部分にアクセスします。
 
    ```
-   docker exec -it myapp-php bash
+   docker exec -it myapp-php sh
    ```
 
 4. **laravelをインストール**  

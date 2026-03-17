@@ -9,17 +9,23 @@ COPY . /var/www
 RUN apk add --no-cache \
   git \
   unzip \
-  libpng-dev \
-  libjpeg-turbo-dev \
-  libfreetype-dev \
-  libzip-dev \
-  postgresql-dev \
   curl \
   gnupg \
   openssl \
+  freetype \
+  libjpeg-turbo \
+  libpng \
+  libzip \
+  libpq \
+  && apk add --no-cache --virtual .build-deps \
+  libpng-dev \
+  libjpeg-turbo-dev \
+  freetype-dev \
+  libzip-dev \
+  postgresql-dev \
   && docker-php-ext-configure gd --with-freetype --with-jpeg \
   && docker-php-ext-install -j"$(nproc)" pdo_mysql mysqli gd zip \
-  && apk del --no-cache libpng-dev libjpeg-turbo-dev libfreetype-dev libzip-dev postgresql-dev
+  && apk del --no-cache .build-deps
 
 RUN chown -R www-data:www-data /var/www
 
